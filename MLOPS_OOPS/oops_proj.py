@@ -22,11 +22,13 @@ class chatbook:
         elif user_info=="2":
             self.signin()
         elif user_info=="3":
-            pass
+            self.write_post()
         elif user_info=="4":
-            pass
+            self.message_friend()
         else:
             exit()
+
+
     def signup(self):
         self.username=input("Enter your username:")
         self.password=input("Enter your password:")
@@ -47,6 +49,24 @@ class chatbook:
             else:
                 print("Invalid username or password. Please try again.")
                 self.menu()
+    def write_post(self):
+        if self.loggedin==True:
+            post=input("Write your post:")
+            print(f"Your post has been published: {post}")
+            self.menu()
+        else:
+            print("You need to be logged in to write a post.")
+            self.menu()
+    def message_friend(self):
+        if self.loggedin==True:
+            friend=input("Enter your friend's username:")
+            message=input("Enter your message:")
+            print(f"Your message has been sent to {friend}: {message}")
+            self.menu()
+        else:
+            print("You need to be logged in to message a friend.")
+            self.menu()
+
 
 
 obj=chatbook()
